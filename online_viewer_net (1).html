@@ -1,0 +1,196 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#e2136e"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg">
+<title>PAYCASH BD</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--p:#e2136e;--pd:#b80f5a;--pl:#fde7f1;--bg:#f4f4f7;--ink:#222;--mut:#777;--g:#13a05a}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Rubik','Hind Siliguri',sans-serif;background:#d9d9de;color:var(--ink);padding-top:env(safe-area-inset-top)}
+.app{max-width:480px;margin:auto;min-height:100vh;background:var(--bg);position:relative;overflow-x:hidden;padding-bottom:96px}
+.hide{display:none!important}button{font-family:inherit;cursor:pointer}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.8)}}
+@keyframes fl{50%{transform:translate(-14px,16px) scale(1.12)}}@keyframes pulse{0%{box-shadow:0 0 0 0 #e2136e88}100%{box-shadow:0 0 0 18px #e2136e00}}
+@keyframes up{from{transform:translateY(100%)}}@keyframes dr{to{stroke-dashoffset:0}}@keyframes sc{0%,100%{top:8%}50%{top:90%}}
+/* header */
+.hd{background:linear-gradient(160deg,var(--p),var(--pd));color:#fff;padding:18px 18px 74px;position:relative;overflow:hidden}
+.hd:before,.hd:after{content:"";position:absolute;border-radius:50%;background:#ffffff1f;animation:fl 7s ease-in-out infinite}
+.hd:before{width:190px;height:190px;right:-60px;top:-70px}.hd:after{width:130px;height:130px;left:-40px;bottom:-40px;animation-delay:-3s}
+.hd>*{position:relative;z-index:1}.rw{display:flex;gap:12px;align-items:center}.rw small{opacity:.8}
+.av{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--p);display:grid;place-items:center;font-weight:600;font-size:20px}
+.bp{margin:18px auto 0;background:#fff;color:var(--p);border-radius:30px;padding:10px 22px;font-weight:600;width:max-content;max-width:100%;display:flex;gap:8px;align-items:center;transition:all .4s cubic-bezier(.2,1.4,.4,1);cursor:pointer;box-shadow:0 6px 16px #0003}
+.bp.on{font-size:24px;padding:10px 34px}
+.ch{display:flex;gap:10px;justify-content:center;margin-top:14px}.ch button{background:#ffffff2b;border:1px solid #ffffff66;color:#fff;border-radius:20px;padding:7px 16px;font-size:14px;transition:.2s}.ch button:active{transform:scale(.94)}
+/* services */
+.g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:-48px 14px 0;background:#fff;border-radius:22px;padding:18px 8px;box-shadow:0 10px 28px #e2136e26;position:relative}
+.t{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--ink);padding:6px 0;animation:pop .5s both;animation-delay:calc(var(--i)*60ms)}
+.t i{font-style:normal;width:66px;height:66px;border-radius:22px;background:var(--pl);display:grid;place-items:center;font-size:32px;transition:.2s}
+.t:active i{transform:scale(.86);background:var(--p)}
+.tip{margin:14px;background:linear-gradient(90deg,#fff,var(--pl));border-radius:16px;padding:14px 16px;border-left:5px solid var(--p);min-height:70px;font-size:14px}.tip b{color:var(--p)}.tip p{animation:fade .6s}
+h4{margin:16px 18px 8px;font-size:16px}.ph{background:var(--p);color:#fff;padding:18px;font-size:18px;font-weight:600}
+.lst{margin:0 14px 20px;background:#fff;border-radius:16px;overflow:hidden}
+.r{display:flex;gap:12px;align-items:center;padding:12px 14px;border-bottom:1px solid #eee;animation:fade .45s both}.r:last-child{border:0}
+.r .ic{width:42px;height:42px;border-radius:50%;background:var(--pl);display:grid;place-items:center;font-size:20px;flex:none}
+.r div:nth-child(2){flex:1;font-size:14px;font-weight:500;min-width:0}.r small{display:block;color:var(--mut);font-weight:400;font-size:12px}
+.in{color:var(--g);font-weight:600}.out{color:var(--p);font-weight:600}.em{padding:26px;text-align:center;color:var(--mut)}
+.pn{display:none}.pn.on{display:block;animation:fade .35s}
+.card{margin:16px 14px;background:#fff;border-radius:18px;padding:20px;text-align:center;box-shadow:0 6px 20px #0001}
+.code{font-size:30px;font-weight:600;color:var(--p);letter-spacing:3px;margin:10px 0}
+.card li{text-align:left;margin:8px 0 0 18px;font-size:14px}
+.pb{border:0;background:var(--p);color:#fff;border-radius:14px;padding:13px;width:100%;font-size:16px;font-weight:600;margin-top:12px;transition:.2s}.pb:active{transform:scale(.97)}
+.pb.o{background:var(--pl);color:var(--p)}
+/* nav */
+.nv{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;display:flex;justify-content:space-around;align-items:flex-end;padding:8px 0 calc(8px + env(safe-area-inset-bottom));box-shadow:0 -4px 20px #0001;z-index:4}
+.nv button{background:none;border:0;font-size:12px;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:2px;width:20%;transition:.2s}.nv button span{font-size:22px}.nv button.on{color:var(--p);font-weight:600}.nv button.on span{transform:translateY(-3px) scale(1.15)}
+.nv .qr{margin-top:-34px;width:64px;height:64px;border-radius:50%;background:var(--p);color:#fff;justify-content:center;font-size:11px;animation:pulse 1.8s infinite;border:4px solid #fff;width:64px}
+/* auth */
+.au{min-height:100vh;background:linear-gradient(170deg,var(--p),var(--pd));color:#fff;padding:36px 24px}
+.au h1{font-size:32px;margin:6px 0}.au p{opacity:.85;margin-bottom:20px}.logo{font-size:30px;font-weight:600;animation:pop .6s}
+input{width:100%;padding:14px;border-radius:12px;border:2px solid transparent;font:inherit;font-size:17px;margin-bottom:12px;background:#fff;color:var(--ink)}input:focus{outline:0;border-color:#ffd1e5}
+.au .pb{background:#fff;color:var(--p)}.au button.lk{background:none;border:0;color:#fff;margin-top:16px;width:100%;font-size:15px}
+/* sheets */
+.sh{position:fixed;inset:0;background:#0009;display:none;align-items:flex-end;z-index:8}.sh.on{display:flex}
+.sh>div{background:#fff;width:100%;max-width:480px;margin:auto;border-radius:24px 24px 0 0;padding:20px;animation:up .35s cubic-bezier(.2,.9,.3,1);max-height:92vh;overflow:auto}
+.sh input{background:var(--bg);border-color:#eee}.sh input:focus{border-color:var(--p)}
+#who{min-height:26px;font-weight:600;color:var(--g);margin:-4px 0 10px;animation:fade .3s}.bad{color:var(--p)!important}
+.sm{background:var(--pl);border-radius:14px;padding:14px;margin-bottom:12px;line-height:1.7}
+#qr{display:grid;place-items:center;padding:14px}#qr img{border-radius:8px}
+/* banner */
+#nb{position:fixed;top:-130px;left:50%;transform:translateX(-50%);width:calc(100% - 24px);max-width:456px;background:#fff;border-radius:18px;padding:14px 16px;box-shadow:0 12px 34px #0005;border-left:7px solid var(--p);z-index:30;transition:top .55s cubic-bezier(.2,1.3,.4,1);display:flex;gap:12px;align-items:center}#nb.on{top:calc(12px + env(safe-area-inset-top))}
+#nb span{font-size:28px}#nb small{display:block;color:var(--mut)}
+/* success + scanner */
+#ok{position:fixed;inset:0;background:var(--p);color:#fff;z-index:40;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px}#ok.on{display:flex;animation:fade .4s}
+#ok svg{width:120px;margin-bottom:16px}#ok circle,#ok path{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;stroke-dasharray:300;stroke-dashoffset:300;animation:dr .8s .1s forwards}#ok path{animation-delay:.6s}
+#ok .pb{background:#fff;color:var(--p);max-width:260px;margin-top:26px}
+#sc{position:fixed;inset:0;background:#000;z-index:35;display:none}#sc.on{display:block}#sc video{width:100%;height:100%;object-fit:cover}
+.fr{position:absolute;left:50%;top:50%;width:250px;height:250px;margin:-150px 0 0 -125px;border:3px solid #fff;border-radius:24px;box-shadow:0 0 0 100vmax #0008;overflow:hidden}.fr i{position:absolute;left:0;right:0;height:3px;background:var(--p);box-shadow:0 0 12px var(--p);animation:sc 2s infinite}
+.cl{position:absolute;top:calc(14px + env(safe-area-inset-top));left:14px;background:#fff;border:0;border-radius:20px;padding:8px 16px;font-size:15px}.hint{position:absolute;bottom:18%;width:100%;text-align:center;color:#fff}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div class="app">
+<div id="nb"><span id="ni"></span><div><b id="n1"></b><small id="n2"></small></div></div>
+
+<section id="auth" class="au hide">
+ <div class="logo">PAYCASH BD</div><h1 id="at">লগইন</h1><p id="as">মোবাইল নম্বর ও ৬ ডিজিট পিন দিন</p>
+ <input id="name" class="hide" placeholder="আপনার নাম" autocomplete="name">
+ <input id="phone" type="tel" inputmode="numeric" maxlength="11" placeholder="মোবাইল নম্বর 01XXXXXXXXX">
+ <input id="pin" type="password" inputmode="numeric" maxlength="6" placeholder="৬ ডিজিট পিন">
+ <input id="rf" class="hide" placeholder="রেফার কোড (থাকলে)">
+ <button class="pb" id="go">লগইন</button>
+ <button class="lk" id="sw">নতুন অ্যাকাউন্ট খুলুন · ৳150 বোনাস পান</button>
+ <button class="lk inst hide">📲 অ্যাপ ইনস্টল করুন</button>
+</section>
+
+<main id="main" class="hide">
+ <div class="pn on" id="p-home">
+  <div class="hd"><div class="rw"><div class="av" id="av"></div><div><b id="hn"></b><br><small id="hp"></small></div></div>
+   <div class="bp" id="bp"><span>👁</span><span id="bv">ব্যালান্স দেখতে ট্যাপ করুন</span></div>
+   <div class="ch"><button id="b-sc">📷 স্ক্যান QR</button><button id="b-mq">▦ আমার QR</button></div></div>
+  <div class="g" id="g"></div>
+  <div class="tip" id="tip"></div>
+  <h4>সাম্প্রতিক লেনদেন</h4><div class="lst" id="l1"></div>
+ </div>
+ <div class="pn" id="p-inbox"><div class="ph">ইনবক্স</div><div class="lst" style="margin-top:14px" id="l2"></div></div>
+ <div class="pn" id="p-ref"><div class="ph">রেফার করুন</div><div class="card"><div style="font-size:46px">🎁</div><b>বন্ধুকে রেফার করে প্রতি জনে ৳50 পান</b>
+  <div class="code" id="rc"></div><button class="pb" id="shr">কোড শেয়ার করুন</button>
+  <ul style="margin-top:16px"><li>বন্ধু রেজিস্টার করলে সে পাবে ৳150 বোনাস</li><li>আপনি পাবেন ৳50, সাথে সাথে ব্যালান্সে</li></ul></div></div>
+ <div class="pn" id="p-me"><div class="ph">আমার অ্যাকাউন্ট</div><div class="card"><div class="av" style="margin:auto;background:var(--pl)" id="av2"></div><h4 id="mn" style="margin:10px 0 0"></h4><div id="mp" style="color:var(--mut)"></div>
+  <button class="pb" id="b-mq2">▦ আমার QR কোড</button><button class="pb o inst hide">📲 অ্যাপ ইনস্টল করুন</button><button class="pb o" id="out">লগআউট</button></div></div>
+</main>
+
+<nav class="nv hide" id="nv">
+ <button data-t="home" class="on"><span>🏠</span>হোম</button><button data-t="inbox"><span>✉️</span>ইনবক্স</button>
+ <button class="qr" id="b-sc2"><span style="font-size:26px">⌗</span>স্ক্যান</button>
+ <button data-t="ref"><span>🎁</span>রেফার</button><button data-t="me"><span>👤</span>আমি</button>
+</nav>
+
+<div class="sh" id="fs"><div>
+ <h4 id="ft" style="margin:0 0 12px;font-size:18px"></h4>
+ <div id="s1"><input id="tp" type="tel" inputmode="numeric"><div id="who"></div>
+  <input id="am" type="number" inputmode="decimal" placeholder="টাকার পরিমাণ"><input id="nt" maxlength="60" placeholder="মেসেজ (ঐচ্ছিক)">
+  <button class="pb" id="nx">পরবর্তী</button></div>
+ <div id="s2" class="hide"><div class="sm" id="sum"></div><input id="cpin" type="password" inputmode="numeric" maxlength="6" placeholder="নিশ্চিত করতে আপনার পিন দিন"><button class="pb" id="cf">নিশ্চিত করুন</button></div>
+ <button class="pb o" id="cx">বাতিল</button>
+</div></div>
+<div class="sh" id="qs"><div style="text-align:center"><h4 style="margin:0">আমার QR কোড</h4><div id="qr"></div><small>এই QR স্ক্যান করে কেউ আপনাকে টাকা পাঠাতে পারবে</small><button class="pb o" id="qx">বন্ধ করুন</button></div></div>
+<div id="ok"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="48"/><path d="M38 62l15 15 30-32"/></svg><h2 id="o1"></h2><p id="o2" style="margin-top:8px;opacity:.9;line-height:1.7"></p><button class="pb" id="od">ঠিক আছে</button></div>
+<div id="sc"><video id="vd" playsinline muted></video><div class="fr"><i></i></div><button class="cl" id="sx">✕ বন্ধ</button><div class="hint">QR কোড ফ্রেমের ভেতরে ধরুন</div></div>
+<canvas id="cv" class="hide"></canvas>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+/* ====== শুধু এই দুটি লাইন বদলান (Supabase → Project Settings → API) ====== */
+const SUPABASE_URL='https://rhrrhhipqcfuoblseqwt.supabase.co', SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJocnJoaGlwcWNmdW9ibHNlcXd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE5MTMwNjksImV4cCI6MjEwNzQ4OTA2OX0.iPFF-BG_KFRHUTwsuDlNCi4KsL7kUZZGH5CbyjHw6Uw';
+/* ======================================================================== */
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY),$=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+const em=p=>p+'@paybd.app',okP=p=>/^01[3-9]\d{8}$/.test(p),f2=n=>Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const S=[['💸','সেন্ড মানি','send',1,'প্রাপকের নম্বর'],['🏧','ক্যাশ আউট','cash_out',1,'এজেন্টের নম্বর'],['📱','মোবাইল রিচার্জ','recharge',0,'মোবাইল নম্বর'],['🛍️','পেমেন্ট','payment',1,'মার্চেন্টের নম্বর'],['🏦','অ্যাড মানি'],['🧾','পে বিল','bill',0,'বিল অ্যাকাউন্ট নম্বর'],['🎫','টিকেট','ticket',0,'বুকিং নম্বর'],['🎓','শিক্ষা ফি','education',0,'স্টুডেন্ট আইডি'],['🤲','ডোনেশন','donation',0,'প্রতিষ্ঠানের আইডি'],['🛡️','ইন্স্যুরেন্স','insurance',0,'পলিসি নম্বর'],['🐷','সেভিংস'],['💰','লোন']];
+const TIPS=['কাউকে আপনার পিন বা OTP কখনো বলবেন না।','টাকা পাঠানোর আগে প্রাপকের নাম মিলিয়ে নিন।','বন্ধুকে রেফার করলে প্রতি জনে ৳50 বোনাস!','QR স্ক্যান করে এক ট্যাপে টাকা পাঠান।','PAYCASH BD থেকে কেউ পিন চাইলে সেটি প্রতারণা।'];
+let me=null,reg=false,svc=null,shown=false,ch=null,dp=null,ac,tm,tt,stream,raf,lastQ;
+/* sound + vibration */
+document.addEventListener('click',()=>{try{ac=ac||new AudioContext();ac.resume()}catch(e){}},{once:true});
+function beep(inc){try{ac=ac||new AudioContext();(inc?[660,880,1100]:[880,660]).forEach((fr,i)=>{const o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+i*.14;o.frequency.value=fr;o.connect(g);g.connect(ac.destination);g.gain.setValueAtTime(.25,s);g.gain.exponentialRampToValueAtTime(.001,s+.22);o.start(s);o.stop(s+.24)})}catch(e){}navigator.vibrate&&navigator.vibrate(inc?[200,90,200,90,300]:[150])}
+function nb(a,b,i,snd){$('#n1').textContent=a;$('#n2').textContent=b||'';$('#ni').textContent=i||'ℹ️';$('#nb').classList.add('on');clearTimeout(tm);tm=setTimeout(()=>$('#nb').classList.remove('on'),4500);snd!=null&&beep(snd);
+ if(document.hidden&&snd&&window.Notification&&Notification.permission==='granted')navigator.serviceWorker.ready.then(r=>r.showNotification(a,{body:b,icon:'icon.svg',vibrate:[200,100,200]}))}
+const toast=t=>nb(t,'','ℹ️');
+function view(v){$('#auth').classList.toggle('hide',v!=='auth');['#main','#nv'].forEach(s=>$(s).classList.toggle('hide',v!=='home'))}
+function tab(t){$$('.pn').forEach(p=>p.classList.toggle('on',p.id==='p-'+t));$$('.nv [data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===t));scrollTo(0,0)}
+$$('.nv [data-t]').forEach(b=>b.onclick=()=>tab(b.dataset.t));
+/* auth */
+const q=new URLSearchParams(location.search).get('ref');if(q){$('#rf').value=q;}
+$('#sw').onclick=()=>{reg=!reg;['#name','#rf'].forEach(s=>$(s).classList.toggle('hide',!reg));$('#at').textContent=reg?'নতুন অ্যাকাউন্ট':'লগইন';$('#go').textContent=reg?'রেজিস্টার · ৳150 বোনাস':'লগইন';$('#sw').textContent=reg?'অ্যাকাউন্ট আছে? লগইন করুন':'নতুন অ্যাকাউন্ট খুলুন · ৳150 বোনাস পান'};
+if(q)$('#sw').click();
+$('#go').onclick=async()=>{const p=$('#phone').value.trim(),pin=$('#pin').value.trim(),name=$('#name').value.trim();
+ if(!okP(p))return toast('সঠিক মোবাইল নম্বর দিন');if(!/^\d{6}$/.test(pin))return toast('পিন ৬ ডিজিটের হতে হবে');
+ let r;if(reg){if(!name)return toast('নাম দিন');r=await sb.auth.signUp({email:em(p),password:pin,options:{data:{phone:p,name,ref:$('#rf').value.trim()}}})}
+ else r=await sb.auth.signInWithPassword({email:em(p),password:pin});
+ if(r.error)return toast(r.error.message.includes('already')?'এই নম্বর আগেই রেজিস্টার করা':'নম্বর বা পিন ভুল');
+ window.Notification&&Notification.requestPermission();boot(reg)};
+$('#out').onclick=async()=>{await sb.auth.signOut();ch&&sb.removeChannel(ch);me=null;view('auth')};
+/* data */
+function cnt(v){const el=$('#bv'),t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/900);el.textContent='৳ '+f2(v*(1-Math.pow(1-k,3)));k<1&&requestAnimationFrame(f)})(t0)}
+function hideBal(){shown=false;$('#bp').classList.remove('on');$('#bv').textContent='ব্যালান্স দেখতে ট্যাপ করুন'}
+$('#bp').onclick=()=>{if(shown)return hideBal();shown=true;$('#bp').classList.add('on');cnt(me.balance);clearTimeout(tt);tt=setTimeout(hideBal,10000)};
+async function prof(){const{data}=await sb.from('profiles').select('*').single();if(!data)return;me=data;const i=(data.name||'?')[0].toUpperCase();
+ $('#av').textContent=$('#av2').textContent=i;$('#hn').textContent=$('#mn').textContent=data.name;$('#hp').textContent=$('#mp').textContent=data.phone;$('#rc').textContent=data.ref_code;if(shown)cnt(data.balance)}
+const K={send:'সেন্ড মানি',cash_out:'ক্যাশ আউট',payment:'পেমেন্ট',recharge:'রিচার্জ',bill:'বিল পেমেন্ট',ticket:'টিকেট',education:'শিক্ষা ফি',donation:'ডোনেশন',insurance:'ইন্স্যুরেন্স'};
+const row=(t,i)=>{const inc=t.receiver===me.id,b=t.kind==='bonus',nm=inc?(t.sender_name||t.sender_phone):(t.receiver_name||t.receiver_phone);
+ return`<div class="r" style="animation-delay:${i*50}ms"><div class="ic">${b?'🎁':inc?'⬇️':'⬆️'}</div><div>${b?t.note:(inc?'প্রাপ্ত · ':K[t.kind]+' · ')+nm.replace(/</g,'&lt;')}<small>${t.kind==='bonus'?'PAYCASH BD':(inc?t.sender_phone:t.receiver_phone)} · ${t.trx} · ${new Date(t.created_at).toLocaleString('en-GB',{dateStyle:'short',timeStyle:'short'})}${!b&&t.note?' · '+t.note.replace(/</g,'&lt;'):''}</small></div><div class="${inc?'in':'out'}">${inc?'+':'−'}৳${f2(t.amount)}</div></div>`};
+async function txs(){const{data}=await sb.from('transactions').select('*').order('created_at',{ascending:false}).limit(40);const d=data||[];
+ $('#l1').innerHTML=d.length?d.slice(0,3).map(row).join(''):'<div class="em">এখনো কোনো লেনদেন নেই</div>';$('#l2').innerHTML=d.length?d.map(row).join(''):'<div class="em">কোনো মেসেজ নেই</div>'}
+function live(){ch&&sb.removeChannel(ch);ch=sb.channel('pc-'+me.id)
+ .on('postgres_changes',{event:'*',schema:'public',table:'profiles',filter:'id=eq.'+me.id},prof)
+ .on('postgres_changes',{event:'INSERT',schema:'public',table:'transactions'},p=>{const t=p.new;
+  if(t.receiver===me.id&&t.sender!==me.id)nb(t.kind==='bonus'?'🎁 ৳'+f2(t.amount)+' '+t.note:'৳'+f2(t.amount)+' পেয়েছেন',t.kind==='bonus'?'PAYCASH BD':t.sender_name+' ('+t.sender_phone+')'+(t.note?' · '+t.note:''),'💰',1);txs()}).subscribe()}
+/* services */
+$('#g').innerHTML=S.map((s,i)=>`<button class="t" style="--i:${i}" data-i="${i}"><i>${s[0]}</i>${s[1]}</button>`).join('');
+$$('.t').forEach(b=>b.onclick=()=>openF(+b.dataset.i));
+function openF(i,ph){const s=S[i];if(!s[2])return toast(s[1]+' — শীঘ্রই আসছে');svc=s;$('#ft').textContent=s[0]+' '+s[1];$('#tp').placeholder=s[4];$('#tp').value=ph||'';['#am','#nt','#cpin'].forEach(x=>$(x).value='');$('#who').textContent='';$('#s1').classList.remove('hide');$('#s2').classList.add('hide');$('#fs').classList.add('on');ph&&lookup()}
+async function lookup(){const p=$('#tp').value.trim(),w=$('#who');w.textContent='';w.classList.remove('bad');if(svc[3]&&okP(p)){const{data}=await sb.rpc('lookup_phone',{p});w.textContent=data?'✔ '+data:'✖ এই নম্বর রেজিস্টার করা নেই';w.classList.toggle('bad',!data);w.dataset.n=data||''}}
+$('#tp').oninput=lookup;$('#cx').onclick=()=>$('#fs').classList.remove('on');
+$('#nx').onclick=()=>{const t=$('#tp').value.trim(),a=Number($('#am').value);if(!t)return toast('নম্বর দিন');if(svc[3]&&!$('#who').dataset.n)return toast('রেজিস্টার করা নম্বর দিন');if(!(a>0))return toast('টাকার পরিমাণ দিন');
+ $('#sum').innerHTML=`${svc[3]?'প্রাপক: <b>'+$('#who').dataset.n+'</b><br>':''}নম্বর: <b>${t}</b><br>পরিমাণ: <b>৳${f2(a)}</b><br>চার্জ: <b>৳0.00</b>`;$('#s1').classList.add('hide');$('#s2').classList.remove('hide')};
+$('#cf').onclick=async()=>{const a=await sb.auth.signInWithPassword({email:em(me.phone),password:$('#cpin').value});if(a.error)return toast('পিন ভুল হয়েছে');
+ const amt=Number($('#am').value),n=$('#who').dataset.n||$('#tp').value,{data,error}=await sb.rpc('send_money',{p_target:$('#tp').value.trim(),p_amount:amt,p_kind:svc[2],p_note:$('#nt').value.trim()||null});
+ if(error){const m=error.message;return toast(m.includes('Not enough')?'ব্যালান্স যথেষ্ট নয়':m.includes('not registered')?'নম্বর রেজিস্টার করা নেই':'লেনদেন ব্যর্থ')}
+ $('#fs').classList.remove('on');$('#o1').textContent='৳'+f2(amt)+' সফল';$('#o2').innerHTML=svc[1]+' · '+n+'<br>TrxID: '+data;$('#ok').classList.remove('on');void $('#ok').offsetWidth;$('#ok').classList.add('on');beep(0);prof();txs()};
+$('#od').onclick=()=>$('#ok').classList.remove('on');
+/* QR */
+function myQR(){$('#qr').innerHTML='';new QRCode($('#qr'),{text:'paycash:'+me.phone,width:210,height:210,colorDark:'#b80f5a'});$('#qs').classList.add('on')}
+$('#b-mq').onclick=$('#b-mq2').onclick=myQR;$('#qx').onclick=()=>$('#qs').classList.remove('on');
+async function scan(){$('#sc').classList.add('on');lastQ='';try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});const v=$('#vd');v.srcObject=stream;await v.play();loop()}catch(e){toast('ক্যামেরার অনুমতি দিন');stopScan()}}
+function stopScan(){cancelAnimationFrame(raf);stream&&stream.getTracks().forEach(t=>t.stop());$('#sc').classList.remove('on')}
+function loop(){const v=$('#vd'),c=$('#cv');if(v.readyState===4){c.width=v.videoWidth;c.height=v.videoHeight;const x=c.getContext('2d');x.drawImage(v,0,0);const r=jsQR(x.getImageData(0,0,c.width,c.height).data,c.width,c.height);
+ if(r&&r.data!==lastQ){lastQ=r.data;const m=r.data.match(/01[3-9]\d{8}/);if(m){stopScan();navigator.vibrate&&navigator.vibrate(90);return openF(0,m[0])}toast('এই QR-এ মোবাইল নম্বর নেই')}}raf=requestAnimationFrame(loop)}
+$('#b-sc').onclick=$('#b-sc2').onclick=scan;$('#sx').onclick=stopScan;
+/* refer + install */
+$('#shr').onclick=()=>{const l=location.origin+location.pathname+'?ref='+me.ref_code,t='PAYCASH BD-তে রেজিস্টার করে ৳150 বোনাস পান! কোড: '+me.ref_code+' '+l;navigator.share?navigator.share({text:t}).catch(()=>{}):navigator.clipboard.writeText(t).then(()=>toast('কপি হয়েছে'))};
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$$('.inst').forEach(b=>b.classList.remove('hide'))});
+$$('.inst').forEach(b=>b.onclick=async()=>{if(dp){dp.prompt();await dp.userChoice;dp=null;$$('.inst').forEach(x=>x.classList.add('hide'))}else toast('Safari: Share → Add to Home Screen')});
+if(/iphone|ipad/i.test(navigator.userAgent)&&!navigator.standalone)$$('.inst').forEach(b=>b.classList.remove('hide'));
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
+let ti=0;function tip(){$('#tip').innerHTML='<b>💡 টিপস</b><p>'+TIPS[ti++%TIPS.length]+'</p>'}tip();setInterval(tip,5000);
+async function boot(){const{data}=await sb.auth.getSession();if(!data.session)return view('auth');view('home');await prof();if(me){await txs();live()}}
+boot();
+</script></body></html>
